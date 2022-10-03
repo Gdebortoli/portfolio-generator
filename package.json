@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-generator",
+  "version": "1.0.0",
+  "description": "Portfolio Generated using node.js and made using only the command-line",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gdebortoli/portfolio-generator.git"
+  },
+  "author": "Gigi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gdebortoli/portfolio-generator/issues"
+  },
+  "homepage": "https://github.com/Gdebortoli/portfolio-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
