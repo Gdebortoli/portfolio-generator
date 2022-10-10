@@ -1,9 +1,9 @@
 // // Gives us access to fs module methods
-// const fs = require('fs');
+const fs = require('fs');
 // Inquirer
 const inquirer = require('inquirer');
-// // Includes generate page function from other file 
-// const generatePage = require('./src/page-template.js');
+// Includes HTML template function from page-template.js
+const generatePage = require('./src/page-template.js');
 
 // const pageHTML = generatePage(name, github);
 
@@ -154,5 +154,12 @@ const promptProject = portfolioData => {
 promptUser()
     .then(promptProject)
     .then(portfolioData => {
-        console.log(portfolioData);
-    });
+            // Uses results from inquirer prompts as an argument (portfolioData)
+            const pageHTML = generatePage(portfolioData);
+
+            // fs.writeFile('./index.html', pageHTML, err => {
+            //   if (err) throw new Error(err);
+
+            //   console.log('Page created! Check out index.html in this directory to see it!');
+            // });
+        });
