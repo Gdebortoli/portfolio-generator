@@ -29,7 +29,7 @@ const generateProjects = projectsArr => {
         return false;
       }
     });
-    // Format the projects features and non featured on the page 
+    // Format the projects features and non featured on the page
     const featuredProjectHtmlArr = featuredProjects.map(({ name, description, languages, link }) => {
       return `
         <div class="col-12 mb-2 bg-dark text-light p-3 flex-column">
