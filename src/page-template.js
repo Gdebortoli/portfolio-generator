@@ -53,9 +53,6 @@ const generateProjects = projectsArr => {
       </section>
     `;
   };
-// Create the Projects section
-
-
 // Generate Page and pulling information from Inquirer prompts
     module.exports = templateData => {
 // destructure data based on their property key names

@@ -1,9 +1,9 @@
-// Requires this informaion being exported from gen-site.js
-const { writeFile, copyFile } = require('./utils/generate-site.js');
 // Inquirer
 const inquirer = require('inquirer');
 // Includes HTML template function from page-template.js
 const generatePage = require('./src/page-template.js');
+// Requires this informaion being exported from gen-site.js
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 
 // User Questions
 const promptUser = () => {
