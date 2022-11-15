@@ -1,9 +1,9 @@
-// Gives us access to fs module methods
-const fs = require('fs');
 // Inquirer
 const inquirer = require('inquirer');
 // Includes HTML template function from page-template.js
 const generatePage = require('./src/page-template.js');
+// Requires this informaion being exported from gen-site.js
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 
 // User Questions
 const promptUser = () => {
@@ -142,16 +142,26 @@ const promptProject = portfolioData => {
             }
         });
 };
-
+// Asks User Name/Github/About Me Questions
 promptUser()
+    // Asks project info questions
     .then(promptProject)
     .then(portfolioData => {
-        // Uses results from inquirer prompts as an argument (portfolioData)
-        const pageHTML = generatePage(portfolioData);
-
-        fs.writeFile('./index.html', pageHTML, err => {
-            if (err) throw new Error(err);
-
-            console.log('Page created! Check out index.html in this directory to see it!');
-        });
-    });
+        // takes this information and turns it into an array object
+        return generatePage(portfolioData);
+    })
+    .then(pageHTML => {
+        // takes the information from the object and puts it into an index.html page
+        return writeFile(pageHTML);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return copyFile();
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+    })
+    .catch(err => {
+        // shows an error if there are any issues running the app
+        console.log(err);
+    }); 
